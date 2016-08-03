@@ -1979,7 +1979,7 @@ class JansenRit(Model):
         #self.nu_max2 = None #2.0 * self.nu_max
         #self.Aa = None # self.A * self.a
         #self.Bb = None # self.B * self.b
-        #self.aa = None # self.a**2
+        #self.sub = None # self.a**2
         #self.a2 = None # 2.0 * self.a
         #self.b2 = None # 2.0 * self.b
         #self.a_1J = None # self.a_1 * self.J
@@ -4010,7 +4010,7 @@ class Epileptor(Model):
         order=-1)
 
     aa = arrays.FloatArray(
-        label="aa",
+        label="sub",
         default=numpy.array([6]),
         doc="Linear coefficient in fifth state variable",
         order=-1)
@@ -4259,7 +4259,7 @@ class EpileptorPermittivityCoupling(Model):
         order=-1)
 
     aa = arrays.FloatArray(
-        label="aa",
+        label="sub",
         default=numpy.array([6]),
         doc="Linear coefficient in fifth state variable",
         order=-1)

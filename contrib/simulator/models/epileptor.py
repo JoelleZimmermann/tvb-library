@@ -140,7 +140,7 @@ class HMJEpileptor(models.Model):
         order=-1)
 
     aa = arrays.FloatArray(
-        label="aa",
+        label="sub",
         default=numpy.array([6]),
         doc="n/a",
         order=-1)
@@ -275,7 +275,7 @@ class HMJEpileptor(models.Model):
         if_ = concat([ (-y[4] + y[3] - y[3]**3 + self.Iext2 + 2*y[5] - 0.3*(y[2] - 3.5) + self.Kpop2 * (c_pop2 - y[3])).reshape((1, n, 1)), (-y[4]/self.tau).reshape((1, n, 1)) ])
         # else
         #     ydot4 = -y(5)+ y(4)-y(4)^3 + iext2+ 2*y(6)-0.3*(y(3)-3.5); 
-        #     ydot5 = (-y(5) + aa*(y(4)+0.25))/tau;   % here is the mlj structure
+        #     ydot5 = (-y(5) + sub*(y(4)+0.25))/tau;   % here is the mlj structure
         # end
 
         else_pop2 = concat([ (-y[4] + y[3] - y[3]**3 + self.Iext2 + 2*y[5] - 0.3*(y[2] - 3.5) + self.Kpop2 * (c_pop2 - y[3])).reshape((1, n, 1)), ((-y[4] + self.aa*(y[3] + 0.25))/self.tau).reshape((1, n, 1)) ])
